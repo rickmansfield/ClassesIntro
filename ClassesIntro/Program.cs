@@ -7,8 +7,8 @@ namespace ClassesIntro
         static void Main(string[] args)
         {
             Console.Clear();
-            Car myCar = new Car();
-            Car anotherCar = new Car();
+            Car myCar = new Car("Rick's Car");
+            Car anotherCar = new Car("The Batmobile");
 
             myCar.Accelerate();
             myCar.Accelerate();
@@ -20,19 +20,27 @@ namespace ClassesIntro
             anotherCar.Brake();
         }
     }
+
     class Car
     {
         private int speed = 0;
+        private string name;
+
+        public Car(string carName) 
+        { 
+            name = carName;
+        }
         public void Accelerate()
         {
+
             speed++;
-            Console.WriteLine($"Your're going {speed} Mph ");
+            Console.WriteLine($"{name} is going {speed} Mph ");
         }
 
         public void Brake()
         { 
             speed--;
-            Console.WriteLine($"You're going {speed} Mph."); 
+            Console.WriteLine($"{name} is going {speed} Mph."); 
         }
     }
 }
