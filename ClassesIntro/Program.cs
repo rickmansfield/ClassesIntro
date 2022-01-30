@@ -26,21 +26,26 @@ namespace ClassesIntro
         private int speed = 0;
         private string name;
 
-        public Car(string carName) 
-        { 
+        public Car(string carName)
+        {
             name = carName;
         }
         public void Accelerate()
         {
 
             speed++;
-            Console.WriteLine($"{name} is going {speed} Mph ");
+            showSpeed();
         }
 
         public void Brake()
-        { 
+        {
             speed--;
-            Console.WriteLine($"{name} is going {speed} Mph."); 
+            showSpeed();
+        }
+
+        private void showSpeed()
+        {
+            Console.WriteLine($"{name} is going {speed} Mph.");
         }
     }
 }
