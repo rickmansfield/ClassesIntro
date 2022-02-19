@@ -2,22 +2,19 @@
 
 namespace ClassesIntro
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
             Console.Clear();
-            Car myCar = new Car("Rick's Car");
+            Car myCar = new Car("Tim's car");
             Car anotherCar = new Car("The Batmobile");
 
-            myCar.Accelerate();
-            myCar.Accelerate();
-            myCar.Accelerate();
-            myCar.Accelerate();
-            myCar.Brake();
-            myCar.Accelerate();
+            myCar.Accelerate(5);
+            myCar.Accelerate(30);
+            myCar.Brake(4);
 
-            anotherCar.Brake();
+            anotherCar.Brake(0);
         }
     }
 
@@ -30,22 +27,33 @@ namespace ClassesIntro
         {
             name = carName;
         }
-        public void Accelerate()
-        {
 
-            speed++;
+        public void Accelerate(int amount)
+        {
+            speed+=amount; //speed = spead + amount
             ShowSpeed();
         }
 
-        public void Brake()
+        public void Brake(int reduction)
         {
-            speed--;
+            speed = speed < reduction ? speed = 0 : speed -= reduction;
+
             ShowSpeed();
         }
+
+        //public void Brake(int reduction)
+        //{
+        //    speed-=reduction;
+        //    if (speed < 0) 
+        //    {
+        //        speed = 0;
+        //    }
+        //    ShowSpeed();
+        //}
 
         private void ShowSpeed()
         {
-            Console.WriteLine($"{name} is going {speed} Mph.");
+            Console.WriteLine($"{name} is going {speed} miles per hour.");
         }
     }
 }
